@@ -1,0 +1,36 @@
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: rgb(63, 63, 63);
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 10;
+    font-size: 2rem;
+    font-weight: bold;
+};
+
+.container {
+    min-height: 100vh;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.image {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    object-position: center;
+    image-rendering: auto;
+    display: block;
+    margin: 0 auto;
+    border: none;
+}
