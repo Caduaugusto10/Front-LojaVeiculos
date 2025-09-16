@@ -7,14 +7,20 @@ import styles from "./Home.module.css";
 export default function Home() {
     return (
         <div className={styles.container}>
-            <div className={styles.header}>Caduzada Veículos</div>
+            <div className={styles.header}>
+                <span style={{ fontWeight: 'bold', fontSize: '2rem', marginRight: '3rem' }}>Caduzada Veículos</span>
+                <nav style={{ display: 'inline-flex', gap: '2rem', alignItems: 'center' }}>
+                    <Link href="/marcas" style={{ color: 'white', fontWeight: 'bold', fontSize: '1.2rem', textDecoration: 'none', padding: '0.5rem 1.5rem', borderRadius: '6px', transition: 'background 0.2s' }}>Marcas</Link>
+                    <Link href="/veiculos" style={{ color: 'white', fontWeight: 'bold', fontSize: '1.2rem', textDecoration: 'none', padding: '0.5rem 1.5rem', borderRadius: '6px', transition: 'background 0.2s' }}>Veículos</Link>
+                </nav>
+            </div>
 
             <Image className={styles.image} 
-            src="/images/jetta-gli.jpg" 
-            alt="Carro Jetta GLI" 
-            width={100} 
-            height={300}
-            quality={100}
+                src="/images/jetta-gli.jpg" 
+                alt="Carro Jetta GLI" 
+                width={100} 
+                height={300}
+                quality={100}
             />
         </div>
     );
