@@ -1,10 +1,10 @@
 .container {
     position: relative;
-    width: 100vw;
+    width: 100%; 
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    overflow: hidden; 
 }
 
 .image {
@@ -15,7 +15,7 @@
 .content {
     position: relative;
     z-index: 10;
-    padding: 100px 50px 50px;
+    padding: 100px 70px 50px;
     background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.8) 100%);
 }
 
@@ -39,10 +39,12 @@
 }
 
 .destacuesSection {
-    margin-bottom: 80px;
+    margin-bottom: 40px; 
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
+    margin-right: 0;
+    padding-right: 0;
 }
 
 .sectionTitle {
@@ -50,7 +52,7 @@
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 40px;
-    align-self: flex-start;
+    margin-right: 0;
 }
 
 .carGrid {
@@ -123,7 +125,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 50px;
+    padding: 0 70px;
     box-sizing: border-box;
     z-index: 100;
 }
@@ -189,7 +191,7 @@
 .footer {
     background: #1a1a1a;
     color: white;
-    padding: 40px 50px;
+    padding: 40px 70px;
 }
 
 .footerContent {
@@ -197,7 +199,8 @@
     justify-content: space-between;
     align-items: flex-start;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto; 
+    width: 100%;
 }
 
 .footerLogo {
