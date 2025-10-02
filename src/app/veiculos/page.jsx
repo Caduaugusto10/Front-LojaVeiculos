@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
+import CardVeiculos from "@/components/cardVeiculos";
 
 export default function Veiculos() {
     const [veiculos, setVeiculos] = useState([]);
@@ -29,13 +30,15 @@ export default function Veiculos() {
             {veiculos.length === 0 ? (
                 <p>Nenhum veículo encontrado.</p>
             ) : (
-                <ul>
-                    {veiculos.map((v) => (
-                        <li key={v.id}>
-                            <b>{v.modelo}</b> - {v.marca} - {v.ano} - {v.cor}
-                        </li>
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+                    gap: '1rem'
+                }}>
+                    {veiculos.map((veiculo) => (
+                        <CardVeiculos key={veiculo.id} />
                     ))}
-                </ul>
+                </div>
             )}
         </div>
     );
