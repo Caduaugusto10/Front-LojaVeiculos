@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
-import CardMarcas from "../../components/cardMarcas";
+import CarrosselMarcas from "../../components/cardMarcas";
+import styles from "./Marcas.module.css";
 
 export default function Marcas() {
   const [marcas, setMarcas] = useState([]);
@@ -11,9 +12,12 @@ export default function Marcas() {
   useEffect(() => {
     async function fetchMarcas() {
       try {
-        const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/marcas`);
-        setMarcas(data || []);
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/marcas`);
+        console.log("Marcas recebidas:", response.data);
+        setMarcas(response.data || []);
       } catch (err) {
+        console.error("Erro ao buscar marcas:", err);
+        console.error("URL tentativa:", `${process.env.NEXT_PUBLIC_API_URL}/api/marcas`);
         setMarcas([]);
       } finally {
         setLoading(false);
@@ -22,31 +26,16 @@ export default function Marcas() {
     fetchMarcas();
   }, []);
 
-  if (loading) return <p>Carregando marcas...</p>;
+  if (loading) return <p className={styles.loading}>Carregando marcas...</p>;
 
   return (
-    <div style={{ padding: 24 }}>
-      <h1 style={{ color: "#fff", marginBottom: 16 }}>Marcas</h1>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Explore Nossas Marcas</h1>
+      <p className={styles.subtitle}>
+        Encontre o veículo dos seus sonhos navegando pelas melhores marcas disponíveis
+      </p>
 
-      {marcas.length === 0 ? (
-        <p style={{ color: "#ddd" }}>Nenhuma marca encontrada.</p>
-      ) : (
-        <div style={{ display: "flex", justifyContent: "flex-end" }}>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(170px, 1fr))",
-              gap: 16,
-              maxWidth: 720,
-              width: "100%",
-            }}
-          >
-            {marcas.map((m) => (
-              <CardMarcas key={m.id ?? m.nome} marca={m} />
-            ))}
-          </div>
-        </div>
-      )}
+      <CarrosselMarcas marcas={marcas} />
     </div>
   );
 }

@@ -38,3 +38,80 @@
     font-size: .75rem;
     opacity: .8;
 }
+
+.carouselWrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+    min-height: 500px;
+}
+
+.carouselSlide {
+    padding: 0 15px;
+}
+
+.marcaCard {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    overflow: hidden;
+    min-height: 380px;
+    height: 380px;
+}
+
+.marcaCard :global(.ant-card-body) {
+    background: transparent;
+    color: white;
+    text-align: center;
+    padding: 24px;
+    min-height: 100px;
+}
+
+.marcaCard :global(.ant-card-meta-title) {
+    color: #60a5fa;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.marcaCard :global(.ant-card-meta-description) {
+    color: #d1d5db;
+    text-align: center;
+}
+
+.marcaCard :global(.ant-card-actions) {
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cardAction {
+    color: #60a5fa;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.cardAction:hover {
+    color: #93c5fd;
+}
+
+.marcaImageWrapper {
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.1));
+    padding: 20px;
+}
+
+.marcaImage {
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.noMarcas {
+    color: #d1d5db;
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.1rem;
+}

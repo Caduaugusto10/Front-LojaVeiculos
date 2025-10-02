@@ -10,6 +10,7 @@ export default function Header() {
                     <a href="/" className={styles.navLink}>Home</a>
                     <a href="/marcas" className={styles.navLink}>Marcas</a>
                     <a href="/veiculos" className={styles.navLink}>Veículos</a>
+                    <a href="/comprar" className={styles.navLink}>Comprar</a>
                 </nav>
             </div>
         </header>
