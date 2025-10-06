@@ -5,6 +5,8 @@ import axios from "axios";
 import CarrosselMarcas from "../../components/cardMarcas";
 import styles from "./Marcas.module.css";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+
 export default function Marcas() {
   const [marcas, setMarcas] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -12,12 +14,9 @@ export default function Marcas() {
   useEffect(() => {
     async function fetchMarcas() {
       try {
-        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/marcas`);
-        console.log("Marcas recebidas:", response.data);
+        const response = await axios.get(`${API_URL}/api/marcas`);
         setMarcas(response.data || []);
       } catch (err) {
-        console.error("Erro ao buscar marcas:", err);
-        console.error("URL tentativa:", `${process.env.NEXT_PUBLIC_API_URL}/api/marcas`);
         setMarcas([]);
       } finally {
         setLoading(false);

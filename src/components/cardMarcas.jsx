@@ -3,10 +3,14 @@ import Image from "next/image";
 import { Carousel, Card } from "antd";
 import styles from "../styles/CardMarcas.module.css";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/marcas';
+
 export function CardMarcaIndividual({ marca }) {
   const nome = marca?.nome || marca?.name || "Marca";
-  const logo =
-    marca?.logo || marca?.logoUrl || marca?.imagem || "/images/logo-placeholder.png";
+  const photoPath = marca?.photo;
+  const logo = photoPath 
+    ? `${API_URL}/uploads/${photoPath}`
+    : "/images/200.svg";
   const descricao = marca?.descricao;
 
   return (
@@ -18,6 +22,7 @@ export function CardMarcaIndividual({ marca }) {
           width={96}
           height={96}
           className={styles.marcas}
+          unoptimized
         />
       </div>
       <h3 className={styles.title}>{nome}</h3>
@@ -50,8 +55,13 @@ export default function CarrosselMarcas({ marcas = [] }) {
       >
         {marcas.map((marca, index) => {
           const nome = marca?.nome || marca?.name || "Marca";
-          const logo = marca?.logo || marca?.logoUrl || marca?.imagem || "/images/gtr-r34-png.png";
+          const photoPath = marca?.photo;
+          const logo = photoPath 
+            ? `${API_URL}/uploads/${photoPath}`
+            : "/images/200.svg";
           const descricao = marca?.descricao || `Marca ${nome}`;
+          
+          console.log(`Marca ${nome} - Photo path:`, photoPath, "URL completa:", logo);
           
           return (
             <div key={marca.id ?? index} style={{ padding: '20px' }}>
@@ -68,14 +78,20 @@ export default function CarrosselMarcas({ marcas = [] }) {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(37, 99, 235, 0.2))'
+                    background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(37, 99, 235, 0.2))',
+                    position: 'relative'
                   }}>
                     <Image 
                       src={logo}
                       alt={nome}
                       width={120}
                       height={120}
-                      style={{ objectFit: 'contain' }}
+                      style={{ 
+                        objectFit: 'contain',
+                        position: 'relative',
+                        zIndex: 2
+                      }}
+                      unoptimized
                     />
                   </div>
                 }

@@ -1,12 +1,100 @@
 .cardVeiculos {
-    width: 200px;
-    height: 200px;
-    background-color: #000000;
-    border: 1px solid #000000;
-    border-radius: 8px;
+    width: 400px;
+    background: rgba(30, 41, 59, 0.9) !important;
+    border: 1px solid rgba(96, 165, 250, 0.3) !important;
+    border-radius: 12px !important;
     padding: 16px;
-    margin: 16px;
+    margin: 16px auto;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+    z-index: 1;
     color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cardVeiculos:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(96, 165, 250, 0.3);
+    border-color: rgba(96, 165, 250, 0.6) !important;
+}
+
+.imageContainer {
+    height: 200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(59, 130, 246, 0.1);
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.imageContainer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, transparent 0%, rgba(15, 23, 42, 0.3) 100%);
+    z-index: 0;
+}
+
+.carImage {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    display: block;
+}
+
+.cardContent {
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.modeloTitle {
+    color: #60a5fa;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.anoContainer {
+    padding: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.anoLabel {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin-right: 8px;
+}
+
+.anoValue {
+    color: #e2e8f0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.priceContainer {
+    padding: 12px;
+    text-align: center;
+}
+
+.price {
+    color: #10b981;
+    font-size: 1.5rem;
+    font-weight: 700;
 }
