@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Front-LojaVeiculos
 
-## Getting Started
+Projeto frontend de uma loja de veículos (Caduzada Veículos) desenvolvido com Next.js.
 
-First, run the development server:
+## Descrição do Projeto
 
-```bash
+Este é o frontend de uma aplicação de e-commerce para uma concessionária de veículos especializada em carros de alta performance. A aplicação permite aos usuários navegar por marcas, visualizar veículos disponíveis e preencher propostas de compra.
+
+## Tecnologias Utilizadas
+
+Next.js 15.5.3
+React 19.1.0
+Axios (para consumo de API)
+Ant Design (componentes UI)
+CSS Modules (estilos componentizados)
+
+## Estrutura do Projeto
+
+### Páginas Principais
+
+**/home** - Página inicial com apresentação da concessionária Caduzada Veículos
+**/marcas** - Exibe carrossel com as marcas de veículos disponíveis
+**/veiculos** - Lista todos os veículos cadastrados no sistema
+**/comprar** - Formulário completo para proposta de compra de veículo
+
+### Componentes
+
+**Header** - Cabeçalho com navegação entre as páginas
+**Footer** - Rodapé da aplicação
+**cardVeiculos** - Card para exibição de cada veículo (modelo, ano, preço, foto)
+**cardMarcas** - Card/carrossel para exibição das marcas
+
+### Funcionalidades
+
+#### Página Home
+Apresentação da concessionária
+Mensagem de boas-vindas
+Imagem destaque
+
+#### Página Marcas
+Consumo de API para buscar marcas cadastradas
+Exibição em formato carrossel
+Estado de loading durante carregamento
+
+#### Página Veículos
+Consumo de API para buscar todos os veículos
+Grid responsivo de cards de veículos
+Exibição de: modelo, ano, preço formatado, cor, foto
+Estado de loading durante carregamento
+Tratamento para quando não há veículos
+
+#### Página Comprar
+Formulário completo dividido em seções:
+  - Dados Pessoais (nome, email, telefone, CPF, data nascimento)
+  - Endereço (CEP, logradouro, número, complemento, bairro, cidade, estado)
+  - Dados do Veículo (marca, modelo, ano, cor, combustível)
+  - Forma de Pagamento (à vista ou financiado, valor entrada, parcelas, renda)
+  - Serviços Adicionais (seguro, garantia estendida)
+  - Observações
+Simulação de envio de proposta
+Tela de confirmação após envio
+
+### Middleware
+
+O projeto possui um middleware que redireciona a rota raiz (/) automaticamente para /home.
+
+### Integração com Backend
+
+A aplicação consome uma API REST para:
+Buscar lista de marcas
+Buscar lista de veículos
+Exibir fotos dos veículos
+
+A URL da API é configurável via variável de ambiente NEXT_PUBLIC_API_URL (padrão: http://localhost:3000).
+
+## Como Executar
+
+Instalar dependências:
+npm install
+
+Executar em modo desenvolvimento:
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Build para produção:
+npm build
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Executar build de produção:
+npm start
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Variáveis de Ambiente
 
-## Learn More
+NEXT_PUBLIC_API_URL - URL da API backend (padrão: http://localhost:3000)
 
-To learn more about Next.js, take a look at the following resources:
+## Imagens
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+O projeto inclui imagens na pasta public/images:
+Placeholder (200.svg)
+Capa do site (Capa-Site.png)
+GTR R34 (gtr-r34-png.png e gtr-r34.jpg)
